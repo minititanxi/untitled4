@@ -4,7 +4,7 @@ from DataClass import Game
 from DataClass import Data
 import numpy as np
 import copy
-threshold=40
+threshold=60
 def print_to_train(data):
     temp=[]
     temp.append(float(data.game.Game_number))
@@ -95,10 +95,22 @@ for row in csv_reader1:
             vector_intensity_ig2.append(3)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19])>=threshold and int(row[21])>=threshold and int(row[23])>=threshold:
-                flag=1
+            if int(row[18])==int(row[12]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[12]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag=0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+
             if row[0]==row[12]:
                 cpu_core=row[1]
             elif row[2]==row[12]:
@@ -126,10 +138,21 @@ for row in csv_reader1:
             vector_intensity_ig2.append(3)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= 50 and int(row[21]) >= 50 and int(row[23]) >= 50:
-                flag = 1
+            if int(row[18])==int(row[13]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[13]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag = 0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             if row[0] == row[13]:
                 cpu_core = row[1]
             elif row[2] == row[13]:
@@ -156,10 +179,21 @@ for row in csv_reader1:
             vector_intensity_ig2.append(3)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
+            if int(row[18])==int(row[14]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[14]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag = 0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             if row[0] == row[14]:
                 cpu_core = row[1]
             elif row[2] == row[14]:
@@ -185,10 +219,21 @@ for row in csv_reader1:
             vector_intensity_ig2.append(2)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= 50 and int(row[21]) >= 50 and int(row[23]) >= 50:
-                flag = 1
+            if int(row[18])==int(row[12]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[12]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag = 0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             if row[0] == row[12]:
                 cpu_core = row[1]
             elif row[2] == row[12]:
@@ -214,10 +259,21 @@ for row in csv_reader1:
             vector_intensity_ig2.append(2)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
+            if int(row[18])==int(row[13]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[13]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag = 0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             if row[0] == row[13]:
                 cpu_core = row[1]
             elif row[2] == row[13]:
@@ -242,10 +298,21 @@ for row in csv_reader1:
             vector_intensity_ig2.append(1)
             vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
             vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
+            if int(row[18])==int(row[15]) :
+                if int(row[19])>=threshold:
+                    flag=1
+                else:
+                    flag=0
+            elif int(row[20])==int(row[15]) :
+                if int(row[21])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             else:
-                flag = 0
+                if int(row[23])>=threshold:
+                    flag=1
+                else:
+                    flag=0
             if row[0] == row[15]:
                 cpu_core = row[1]
             elif row[2] == row[15]:
@@ -266,181 +333,389 @@ for row in csv_reader1:
 
     else:
         if row[14] == '':#cpu2 1 GPU 2 1
-            vector_intensity_ig1 = []
-            vector_intensity_ig1.append(float(vector_game[int(row[12])-1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[13])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(2)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
-            else:
-                flag = 0
-            if row[0] == row[12]:
-                cpu_core = row[1]
-            elif row[2] == row[12]:
-                cpu_core = row[3]
-            else:
-                cpu_core = row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
+            if row[2]!='' and row[6]!='':
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[12]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[12]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                else:
+                    if int(row[23]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[12]:
+                    cpu_core = row[1]
+                elif row[2] == row[12]:
+                    cpu_core = row[3]
+                else:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(int(row[22]))
+                colocated.append(int(row[23]))
+                data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(1)
 
-            vector_intensity_ig1 = []
-            vector_intensity_ig1.append(float(vector_game[int(row[12])-1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[13])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(2)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
-            else:
-                flag = 0
-            if row[0] == row[13]:
-                cpu_core = row[1]
-            elif row[2] == row[13]:
-                cpu_core = row[3]
-            else:
-                cpu_core = row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[13]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[13]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[13]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                else:
+                    if int(row[23]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[13]:
+                    cpu_core = row[1]
+                elif row[2] == row[13]:
+                    cpu_core = row[3]
+                else:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(int(row[22]))
+                colocated.append(int(row[23]))
+                data = Data(vector_game[int(row[13]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(1)
 
-            vector_intensity_ig1 = []
-            vector_intensity_ig1.append(float(vector_game[int(row[15])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(1)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
-            else:
-                flag = 0
-            if row[0] == row[14]:
-                cpu_core = row[1]
-            elif row[2] == row[14]:
-                cpu_core = row[3]
-            else:
-                cpu_core = row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[15]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
-        else:#CPU 2 1 gpu 3 0
-            vector_intensity_ig1=[]
-            vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[13])-1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[14])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(3)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19])>=threshold and int(row[21])>=threshold and int(row[23])>=threshold:
-                flag=1
-            else:
-                flag=0
-            if row[0]==row[12]:
-                cpu_core=row[1]
-            elif row[2]==row[12]:
-                cpu_core=row[3]
-            else:
-                cpu_core=row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[15]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(1)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[15]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[15]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                else:
+                    if int(row[23]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[14]:
+                    cpu_core = row[1]
+                elif row[2] == row[14]:
+                    cpu_core = row[3]
+                else:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(int(row[22]))
+                colocated.append(int(row[23]))
+                data = Data(vector_game[int(row[15]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(1)
+            elif row[6]=='' and row[15]=='':#cpu 2 0 GPU 2 0
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[12]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[12]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[12]:
+                    cpu_core = row[1]
+                elif row[2] == row[12]:
+                    cpu_core = row[3]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
 
-            vector_intensity_ig1 = []
-            vector_intensity_ig1.append(float(vector_game[int(row[12])-1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[14])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(3)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
-            else:
-                flag = 0
-            if row[0] == row[13]:
-                cpu_core = row[1]
-            elif row[2] == row[13]:
-                cpu_core = row[3]
-            else:
-                cpu_core = row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[13]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[13]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[13]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[13]:
+                    cpu_core = row[1]
+                elif row[2] == row[13]:
+                    cpu_core = row[3]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[13]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+            elif row[6] == '' and row[15] != '':  # cpu 2 0 GPU 1 1
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
 
-            vector_intensity_ig1 = []
-            vector_intensity_ig1.append(float(vector_game[int(row[12])-1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
-            vector_intensity_ig1.append(float(vector_game[int(row[14])-1].Intensity_gpu[0]))
-            vector_intensity_ig2 = []
-            vector_intensity_ig2.append(3)
-            vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
-            vector_intensity_ig2.append(np.var(vector_intensity_ig1))
-            if int(row[19]) >= threshold and int(row[21]) >= threshold and int(row[23]) >= threshold:
-                flag = 1
-            else:
-                flag = 0
-            if row[0] == row[15]:
-                cpu_core = row[1]
-            elif row[2] == row[15]:
-                cpu_core = row[3]
-            else:
-                cpu_core = row[7]
-            colocated = []
-            colocated.append(int(row[18]))
-            colocated.append(int(row[19]))
-            colocated.append(int(row[20]))
-            colocated.append(int(row[21]))
-            colocated.append(int(row[22]))
-            colocated.append(int(row[23]))
-            data = Data(vector_game[int(row[14]) - 1], vector_intensity_ig2, flag, cpu_core,colocated)
-            writer.writerow(print_to_train(data))
-            vector_data.append(data)
-            print(1)
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(1)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[12]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[12]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[12]:
+                    cpu_core = row[1]
+                elif row[2] == row[12]:
+                    cpu_core = row[3]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+
+                vector_intensity_ig1 = []
+
+                vector_intensity_ig1.append(float(vector_game[int(row[15]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(1)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[15]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[15]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[15]:
+                    cpu_core = row[1]
+                elif row[2] == row[15]:
+                    cpu_core = row[3]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[15]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+            elif row[6] != '' and row[15] == '':  # cpu 1 1 GPU 2 0
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[12]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[12]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[12]:
+                    cpu_core = row[1]
+                elif row[6] == row[12]:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig1.append(float(vector_game[int(row[13]) - 1].Intensity_gpu[0]))
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(2)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[13]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[13]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[13]:
+                    cpu_core = row[1]
+                elif row[6] == row[13]:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[13]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+            elif row[6] != '' and row[15] != '':  # cpu 1 1 GPU 1 1
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[12]) - 1].Intensity_gpu[0]))
+
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(1)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[12]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[12]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[12]:
+                    cpu_core = row[1]
+                elif row[6] == row[12]:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[12]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
+
+                vector_intensity_ig1 = []
+                vector_intensity_ig1.append(float(vector_game[int(row[15]) - 1].Intensity_gpu[0]))
+
+                vector_intensity_ig2 = []
+                vector_intensity_ig2.append(1)
+                vector_intensity_ig2.append(np.mean(vector_intensity_ig1))
+                vector_intensity_ig2.append(np.var(vector_intensity_ig1))
+                if int(row[18]) == int(row[15]):
+                    if int(row[19]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                elif int(row[20]) == int(row[15]):
+                    if int(row[21]) >= threshold:
+                        flag = 1
+                    else:
+                        flag = 0
+                if row[0] == row[15]:
+                    cpu_core = row[1]
+                elif row[6] == row[15]:
+                    cpu_core = row[7]
+                colocated = []
+                colocated.append(int(row[18]))
+                colocated.append(int(row[19]))
+                colocated.append(int(row[20]))
+                colocated.append(int(row[21]))
+                colocated.append(0)
+                colocated.append(0)
+                data = Data(vector_game[int(row[15]) - 1], vector_intensity_ig2, flag, cpu_core, colocated)
+                writer.writerow(print_to_train(data))
+                vector_data.append(data)
+                print(2)
 f.close()
 
 print(data)
