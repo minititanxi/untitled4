@@ -35,7 +35,7 @@ X_test = test.values[0:,7:-1]#取样本数据，所有行，除了0,和最后1�
 y_test = test.values[0:,-1]
 
 
-gbm0 = GradientBoostingClassifier(n_estimators=5000,learning_rate=0.1,max_depth=7,random_state=10)
+gbm0 = GradientBoostingClassifier(n_estimators=5000,learning_rate=0.9,max_depth=7,random_state=10)
 #print '7:3,n_estimators=300,learning_rate=0.08,random_state=10'
 #1:9 n_estimators=300,learning_rate=0.9, random_state=10
 #2:8 n_estimators=70,learning_rate=0.05, random_state=10

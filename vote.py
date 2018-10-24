@@ -82,7 +82,8 @@ for row in reader:
     else:
         false=false+1
     tmp.append(flag)  # predict
-    writer.writerow(tmp)
+    if flag<=1:
+        writer.writerow(tmp)
 true=float(true)
 false=float(false)
 precision=true/(true+false)

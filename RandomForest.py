@@ -26,7 +26,7 @@ y_test = test.values[0:,-1]
 
 from sklearn.ensemble import  RandomForestClassifier
 #默认参数下
-rf0 = RandomForestClassifier(n_estimators=70,random_state=10)
+rf0 = RandomForestClassifier(n_estimators=100,random_state=10)
 #7:3 n_estimators=70,random_state=10
 #1:9 n_estimators=100,random_state=10
 #2:8,n_estimators=300,max_depth=9, random_state=10
